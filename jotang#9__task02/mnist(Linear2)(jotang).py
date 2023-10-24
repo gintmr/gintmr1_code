@@ -38,8 +38,6 @@ def load_images(folder_path):
 
 
 folder_path1 = './data'
-
-# 加载图片并进行分类
 images, labels = load_images(folder_path1)
 
 
@@ -70,8 +68,6 @@ def load_images(folder_path):
     # return np.array(images), np.array(labels)
     return np.concatenate(images, axis = 0), np.array(labels)
 folder_path2 = './data_pred'
-
-# 加载图片并进行分类
 images_test, labels_test = load_images(folder_path2)
 
 class NET(nn.Module):
@@ -118,7 +114,7 @@ class NET(nn.Module):
         # out = self.softmax(out)
 
         return out
-#测试函数
+
     def test(self, x):
         y_pred = self.forward(x)
         y_predict = self.softmax(y_pred)
@@ -158,10 +154,6 @@ y_pred = out = net.forward(images)
 _, y_pred = torch.max(out, 1)
 report = classification_report(labels_test, y_pred)
 print(report)
-
-
-#
-# # 打印分类结果
 # for i in range(len(images)):
 #     print(f"Image: {i+1}, Label: {labels[i]}")
 #     print(images[i])  # 打印图片数组

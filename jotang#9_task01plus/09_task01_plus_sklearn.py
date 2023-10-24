@@ -44,28 +44,10 @@ x_test = test_data.drop('label', axis = 1)
 y_test = test_data['label']
 # clf = tree.DecisionTreeClassifier(criterion="entropy")
 clf = RandomForestClassifier()
-clf = clf.fit(x_train, y_train)# 使用实例化好的模型进行拟合操作
-score = clf.score(x_test, y_test) #返回预测的准确度
+clf = clf.fit(x_train, y_train)
+score = clf.score(x_test, y_test) 
 print(score)
 
 y_pred = clf.predict(x_test)
 report = classification_report(y_test, y_pred)
-# 输出分类报告
 print(report)
-
-# param_grid = {
-#     'max_depth': [16, 8, 4, 6, 7, 10, 20, 3, 5],
-#     'min_samples_split': [3, 5, 1, 2, 4, 6, 8, 9],
-#     'min_samples_leaf': [8, 2, 4, 1, 5, 6, 10 ],
-#     'max_features': [None, 'sqrt', 'log2']
-# }
-# tree_classifier = DecisionTreeClassifier()
-# tree_classifier
-# grid_search = GridSearchCV(estimator=tree_classifier, param_grid=param_grid, cv=5)
-# grid_search.fit(x_train, y_train)
-# print("Best parameters: ", grid_search.best_params_)
-# print("Best score: ", grid_search.best_score_)
-# clf_best = DecisionTreeClassifier(max_depth=10, max_features=None, min_samples_leaf=10, min_samples_split=3)
-# clf_best = clf_best.fit(x_train, y_train)
-# score1 = clf_best.score(x_test, y_test)
-# print(score1)

@@ -25,7 +25,7 @@ class Mnist_data(nn.Module):
             #  transforms.RandomVerticalFlip(p=0.05),
             # transforms.RandomRotation(30, p=0.1),
             # rotation,
-            # transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.1), # 随机颜色变换
+            # transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.1), 
             transforms.Resize((84, 84)),
             transforms.Grayscale(),
             transforms.ToTensor()

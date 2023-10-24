@@ -12,20 +12,13 @@ path_test = 'data/test_data.csv'
 path_train = 'data/train_data .csv'
 test_data = pd.read_csv(path_test)
 train_data = pd.read_csv(path_train)
-# # 获取除了最后一列的列名
 # columns_to_fill1 = train_data.columns[:-1]
-# # 使用每一列（除了最后一列）的平均值填充空缺值
 # train_data[columns_to_fill1] = train_data[columns_to_fill1].fillna(train_data[columns_to_fill1].mean())
 # columns_to_fill2 = test_data.columns[:-1]
-# # 使用每一列（除了最后一列）的平均值填充空缺值
 # test_data[columns_to_fill2] = test_data[columns_to_fill2].fillna(test_data[columns_to_fill2].mean())
-#寻找众数
 mode_values1 = train_data.mode().iloc[0]
-# 填充缺失值
 train_data = train_data.fillna(mode_values1)
-#寻找众数
 mode_values2 = test_data.mode().iloc[0]
-# 填充缺失值
 test_data = test_data.fillna(mode_values1)
 # 20,32,54,57,60,64,65,77,78,80,88,,92,100,
 # columns_to_drop = ['feature57', 'feature77', 'feature100','feature20', 'feature32', 'feature54','feature60', 'feature64', 'feature65', 'feature78', 'feature80', 'feature88', 'feature92']
@@ -74,7 +67,6 @@ class NET(nn.Module):
         out = self.softmax(out)
 
         return out
-#测试函数
     def test(self, x):
         y_pred = self.forward(x)
         y_predict = self.softmax(y_pred)
